@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+source $ZINIT_HOME/zinit.zsh
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light Multirious/zsh-helix-mode
+

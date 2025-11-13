@@ -1,0 +1,34 @@
+# Created by newuser for 5.9
+
+autoload -U compinit
+compinit
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
+source $HOME/.zsh_aliases
+source $HOME/.zsh_plugins
+
+if command -v oh-my-posh &> /dev/null
+then
+  eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/$OMP_THEME.omp.toml)"
+else
+  echo "oh-my-posh is not installed!"
+fi
+
+if command -v direnv &> /dev/null
+then
+  eval "$(direnv hook zsh)"
+else
+  echo "direnv is not installed!"
+fi
+
+if command -v zoxide &> /dev/null
+then
+  eval "$(zoxide init zsh --cmd cd --hook none)"
+else
+  echo "zoxide is not installed!"
+fi

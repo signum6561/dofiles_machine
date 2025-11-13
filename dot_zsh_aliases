@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+alias cz='chezmoi'
+alias cdf='cd $(fd -t d | fzf)'
+alias cdd='cd /var/mnt/data/Projects && cdf'
+alias cls='clear'
+alias reload-zsh='source ~/.zshrc'
+alias ls='eza --icons --group-directories-first --sort=name'
+alias ll='ls -l'
+alias lt='ls --tree -L=3 --group-directories-first --git-ignore'
+alias fastfetch="/usr/bin/fastfetch -c ~/.config/fastfetch/config.jsonc"
+alias hnix='$EDITOR ~/.config/home-manager/home.nix'

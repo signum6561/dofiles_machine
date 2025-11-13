@@ -1,0 +1,7 @@
+export PATH=$HOME/.nix-profile/bin:$PATH
+
+export EDITOR="hx"
+
+export SSH_AUTH_SOCK="$HOME/.ssh/runit_ssh_agent_socket"
+
+export OMP_THEME="powerhousev4"
