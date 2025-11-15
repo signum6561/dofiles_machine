@@ -10,9 +10,9 @@
         "pulseaudio",
     ],
     "modules-right": [
+        "tray",
         "cpu",
         "memory",
-        "tray",
         "battery",
         "clock",
     ],

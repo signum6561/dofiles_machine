@@ -1,12 +1,15 @@
 #!/bin/zsh
 
 alias cz='chezmoi'
+alias cze='chezmoi edit'
+alias cza='chezmoi apply'
 alias cdf='cd $(fd -t d | fzf)'
-alias cdd='cd /var/mnt/data/Projects && cdf'
+alias cdd='cd /mnt/data/Projects && cdf'
 alias cls='clear'
-alias reload-zsh='source ~/.zshrc'
+alias zsh-reload='source ~/.zshrc'
 alias ls='eza --icons --group-directories-first --sort=name'
 alias ll='ls -l'
 alias lt='ls --tree -L=3 --group-directories-first --git-ignore'
 alias fastfetch="/usr/bin/fastfetch -c ~/.config/fastfetch/config.jsonc"
-alias hnix='$EDITOR ~/.config/home-manager/home.nix'
+alias homesh='cze ~/.config/home-manager/home.nix'
+alias home-reload='home-manager switch --flake ~/.config/home-manager#dsynclair'

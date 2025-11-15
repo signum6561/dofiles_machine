@@ -2,7 +2,7 @@
 # Faster startup for GTK apps:
 # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2>&1 &
 
-runsvdir "$HOME/service" &
+runsvdir "$HOME/.local/service" &
 /usr/libexec/xdg-desktop-portal-wlr &
 /usr/libexec/xdg-desktop-portal-lxqt &
 /usr/libexec/polkit-kde-authentication-agent-1 &
@@ -10,7 +10,9 @@ runsvdir "$HOME/service" &
 pipewire > /dev/null 2>&1 &
 waybar > /dev/null 2>&1 &
 fcitx5 > /dev/null 2>&1 &
-wbg -s /mnt/data/Pictures/Wallpapers/purple_heart.png > /dev/null 2>&1 &
+waypaper --restore > /dev/null 2>&1 &
+# wbg -s /mnt/data/Pictures/Wallpapers/purple_heart.png > /dev/null 2>&1 &
+tailscale systray > /dev/null 2>&1 &
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
     eval "$(ssh-agent -s)"
@@ -18,12 +20,10 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
 fi
 
 # A common setup for idle management using swayidle
-swayidle -w \
+# swayidle -w \
     # Lock screen after 600 seconds (10 minutes)
-    timeout 600 'swaylock -f -c 000000' \
+    # timeout 600 'sc-screenlock' \
     # Turn off display after 900 seconds (15 minutes)
-    timeout 900 'wlopm --off "*"' \
+    # timeout 900 'wlopm --off "*"' \
     # Restore display on activity
-    resume 'wlopm --on "*"' \
-    # Lock screen immediately before suspend/sleep
-    before-sleep '/usr/local/bin/lockscreen' > /dev/null 2>&1 &
+    # resume 'wlopm --on "*"'

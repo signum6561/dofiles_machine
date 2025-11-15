@@ -8,6 +8,7 @@ let
   tpmDir = "${config.home.homeDirectory}/.config/tmux/plugins/tpm";
 in
 {
+  nixpkgs.config.allowUnfree = true;
   home.username = "dsynclair";
   home.homeDirectory = "/home/dsynclair";
   home.stateVersion = "25.05"; # Please read the comment before changing.
@@ -31,18 +32,18 @@ in
     nodejs_24
     lazygit
     oh-my-posh
+    gimp
+    rofi
+    rofi-calc
+    swaybg
+    waypaper
   ];
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "signum6561";
-        email = "quiocdat777@gmail.com";
-      };
-      core.editor = "hx";
-    };
-  };
+  imports = [
+    ./modules/git.nix
+    ./modules/vesktop.nix
+    ./modules/catppuccin.nix
+  ];
 
   home.activation = {
     installTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -55,7 +56,7 @@ in
   };
 
   home.sessionVariables = {
-    ZINIT_HOME="${pkgs.zinit}/share/zinit";
+    ZINIT_HOME = "${pkgs.zinit}/share/zinit";
   };
 
   programs.home-manager.enable = true;

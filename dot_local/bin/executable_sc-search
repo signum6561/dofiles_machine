@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rofi -show combi -combi-modes "drun,ssh,filebrowser" -show-icons -icon-theme "Papirus"
+

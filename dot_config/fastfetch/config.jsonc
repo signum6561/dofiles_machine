@@ -5,10 +5,7 @@
     "color": "38;2;53;132;228"
   },
   "logo": {
-    "type": "kitty",
-    "source": "~/.config/fastfetch/neptune-logo.png",
-    "width": 30,
-    "height": 15,
+    "type": "none",
   },
     "display": {
     "separator": "  ",
@@ -20,7 +17,7 @@
     "break",
     {
       "type": "os",
-      "key": "󰣛",
+      "key": "",
       "keyColor": "red",
       "format": "{pretty-name}"
     },
